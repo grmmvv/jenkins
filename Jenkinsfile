@@ -4,7 +4,7 @@ void setBuildStatus(String message, String state) {
         reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/grmmvv/jenkins"],
         contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "contextSource"],
         errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
-        statusBackrefSource: [$class: "ManuallyEnteredBackrefSource", backref: "https://www.jenkins.io/doc/pipeline/steps/github"]
+        statusBackrefSource: [$class: "ManuallyEnteredBackrefSource", backref: "https://www.jenkins.io/doc/pipeline/steps/github"],
         statusResultSource: [
             $class: "ConditionalStatusResultSource",
             results: [[
