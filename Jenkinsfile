@@ -22,6 +22,7 @@ pipeline{
     }
     post{
         always{
+            setBuildStatus("Complete", "SUCCESS")
             echo "========always========"
         }
         success{
