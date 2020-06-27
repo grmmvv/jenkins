@@ -1,9 +1,10 @@
 void setBuildStatus(String message, String state) {
     step([
         $class: "GitHubCommitStatusSetter",
-        reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/grmmvv/jenkins"],
+        commitShaSource: [$class: "BuildDataRevisionShaSource"],
         contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "contextSource"],
         errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
+        reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/grmmvv/jenkins111"],
         statusBackrefSource: [$class: "ManuallyEnteredBackrefSource", backref: "https://www.jenkins.io/doc/pipeline/steps/github"],
         statusResultSource: [
             $class: "ConditionalStatusResultSource",
