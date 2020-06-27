@@ -2,9 +2,9 @@ void setBuildStatus(String message, String state) {
     step([
         $class: "GitHubCommitStatusSetter",
         commitShaSource: [$class: "BuildDataRevisionShaSource"],
-        contextSource: [[$class: "ManuallyEnteredCommitContextSource", context: "contextSource"]],
+        contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "There is some context source!"],
         errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
-        reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/grmmvv/jenkins"],
+        reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/my-org/my-repo"],
         statusBackrefSource: [$class: "ManuallyEnteredBackrefSource", backref: "https://www.jenkins.io/doc/pipeline/steps/github"],
         statusResultSource: [
             $class: "ConditionalStatusResultSource",
@@ -39,7 +39,7 @@ pipeline{
     }
     post{
         always{
-            setBuildStatus("Complete", "SUCCESS")
+            setBuildStatus("There is build status", "SUCCESS")
             echo "========always========"
         }
         success{
